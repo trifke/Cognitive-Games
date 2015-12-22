@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  SortViewController.swift
 //  CognitiveGames
 //
 //  Created by Apple on 12/22/15.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource
+class SortViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource
 {
     @IBOutlet weak var collectionView: UICollectionView!
     
@@ -17,14 +17,14 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
     }
-
+    
     override func didReceiveMemoryWarning()
     {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-//    MARK: Collection View data source
+    
+    //    MARK: Collection View data source
     
     func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int
     {
@@ -33,36 +33,28 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int
     {
-        return 4
+        return 16
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell
     {
-        let cell: MainCollectionViewCell = collectionView.dequeueReusableCellWithReuseIdentifier("MainMenuCell", forIndexPath: indexPath) as! MainCollectionViewCell
+        let cell: SortCollectionViewCell = collectionView.dequeueReusableCellWithReuseIdentifier("SortCell", forIndexPath: indexPath) as! SortCollectionViewCell
         
-        cell.configureCell(indexPath.row)
+        cell.configureCell()
         
         return cell
     }
     
-//    MARK: Collection View delegate
+    //    MARK: Collection View delegate
     
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize
     {
-        return CGSize(width: UIScreen.mainScreen().bounds.size.width / 2 - 12, height: UIScreen.mainScreen().bounds.size.width / 2 - 12)
+        return CGSize(width: UIScreen.mainScreen().bounds.size.width / 4 - 10, height: UIScreen.mainScreen().bounds.size.width / 4 - 10)
     }
     
-    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath)
+    //    MARK: button
+    @IBAction func buttonGoTapped(sender: AnyObject)
     {
-        switch indexPath.row
-        {
-            case 0:
-                performSegueWithIdentifier("SortSegue", sender: nil)
-                break
-            
-            default:
-                break
-        }
+        
     }
 }
-
