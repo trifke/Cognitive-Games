@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -83,6 +84,7 @@
                     <connections>
                         <outlet property="collectionView" destination="z3L-ZN-uFu" id="m3N-Fv-T4O"/>
                         <segue destination="rPp-Ia-3FB" kind="show" identifier="SortSegue" id="eJO-uI-3w7"/>
+                        <segue destination="uKP-QQ-wN1" kind="show" identifier="RotatingSegue" id="LPU-cS-2ol"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -212,7 +214,42 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1h7-E0-eeN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2120" y="1139"/>
+            <point key="canvasLocation" x="2192" y="205"/>
+        </scene>
+        <!--Rotating View Controller-->
+        <scene sceneID="psw-pg-Rdx">
+            <objects>
+                <viewController id="uKP-QQ-wN1" customClass="RotatingViewController" customModule="CognitiveGames" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="qK0-MS-Uwz"/>
+                        <viewControllerLayoutGuide type="bottom" id="Iur-yG-TG9"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="unr-uS-dqt">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nPb-Pj-gBn">
+                                <rect key="frame" x="40" y="40" width="520" height="520"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="nPb-Pj-gBn" secondAttribute="height" multiplier="1:1" id="evE-uR-a4D"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="leadingMargin" secondItem="nPb-Pj-gBn" secondAttribute="leading" constant="-20" id="0Om-Qf-eGL"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="nPb-Pj-gBn" secondAttribute="trailing" constant="20" id="60z-Id-3uc"/>
+                            <constraint firstItem="nPb-Pj-gBn" firstAttribute="centerY" secondItem="unr-uS-dqt" secondAttribute="centerY" id="Z2C-im-9EJ"/>
+                            <constraint firstItem="nPb-Pj-gBn" firstAttribute="centerX" secondItem="unr-uS-dqt" secondAttribute="centerX" id="tZC-dP-Saz"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="viewHolder" destination="nPb-Pj-gBn" id="jU5-m7-DEF"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YIa-nb-DEl" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2192" y="906"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="ECV-ut-qnS">

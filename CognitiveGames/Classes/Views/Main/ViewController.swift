@@ -60,6 +60,10 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
                 performSegueWithIdentifier("SortSegue", sender: nil)
                 break
             
+            case 1:
+                performSegueWithIdentifier("RotatingSegue", sender: nil)
+                break
+            
             default:
                 break
         }

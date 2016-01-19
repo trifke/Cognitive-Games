@@ -24,8 +24,8 @@ class MainCollectionViewCell: UICollectionViewCell
             break
             
         case 1:
-            self.labelTitle.text = "Hidden"
-            self.labelDescription.text = "Gone and backwards"
+            self.labelTitle.text = "Rotating"
+            self.labelDescription.text = "Circle of Joy"
             break
             
         case 2:

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		181ED4D91C4E2BAB00AA99D0 /* RotatingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181ED4D81C4E2BAB00AA99D0 /* RotatingViewController.swift */; };
 		1860EEA71C295E0600A87541 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1860EEA61C295E0600A87541 /* AppDelegate.swift */; };
 		1860EEAC1C295E0600A87541 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1860EEAA1C295E0600A87541 /* Main.storyboard */; };
 		1860EEAE1C295E0600A87541 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1860EEAD1C295E0600A87541 /* Assets.xcassets */; };
@@ -37,6 +38,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		181ED4D81C4E2BAB00AA99D0 /* RotatingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RotatingViewController.swift; sourceTree = "<group>"; };
 		1860EEA31C295E0600A87541 /* CognitiveGames.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CognitiveGames.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1860EEA61C295E0600A87541 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1860EEAB1C295E0600A87541 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -80,6 +82,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		181ED4D71C4E2B9400AA99D0 /* Rotating */ = {
+			isa = PBXGroup;
+			children = (
+				181ED4D81C4E2BAB00AA99D0 /* RotatingViewController.swift */,
+			);
+			path = Rotating;
+			sourceTree = "<group>";
+		};
 		1860EE9A1C295E0600A87541 = {
 			isa = PBXGroup;
 			children = (
@@ -166,6 +176,7 @@
 		1860EED81C295E6F00A87541 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				181ED4D71C4E2B9400AA99D0 /* Rotating */,
 				1860EEDE1C2968BA00A87541 /* Sort */,
 				1860EED91C29655F00A87541 /* Main */,
 			);
@@ -323,6 +334,7 @@
 			files = (
 				1860EEDB1C29658700A87541 /* ViewController.swift in Sources */,
 				1860EEE21C2968D800A87541 /* SortCollectionViewCell.swift in Sources */,
+				181ED4D91C4E2BAB00AA99D0 /* RotatingViewController.swift in Sources */,
 				1860EEDD1C2965BF00A87541 /* MainCollectionViewCell.swift in Sources */,
 				1860EEE01C2968C900A87541 /* SortViewController.swift in Sources */,
 				1860EEA71C295E0600A87541 /* AppDelegate.swift in Sources */,
@@ -552,6 +564,7 @@
 				1860EECD1C295E0600A87541 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		1860EECE1C295E0600A87541 /* Build configuration list for PBXNativeTarget "CognitiveGamesTests" */ = {
 			isa = XCConfigurationList;
@@ -560,6 +573,7 @@
 				1860EED01C295E0600A87541 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		1860EED11C295E0600A87541 /* Build configuration list for PBXNativeTarget "CognitiveGamesUITests" */ = {
 			isa = XCConfigurationList;
@@ -568,6 +582,7 @@
 				1860EED31C295E0600A87541 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
