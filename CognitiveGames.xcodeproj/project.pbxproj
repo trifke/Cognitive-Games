@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		180DA3441C5A215F004B6D6D /* SpriteKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 180DA3431C5A215F004B6D6D /* SpriteKit.framework */; };
+		180DA34C1C5A2938004B6D6D /* RotatingScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 180DA34B1C5A2938004B6D6D /* RotatingScene.sks */; };
+		180DA34E1C5A294E004B6D6D /* RotatingScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180DA34D1C5A294E004B6D6D /* RotatingScene.swift */; };
 		181ED4D91C4E2BAB00AA99D0 /* RotatingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181ED4D81C4E2BAB00AA99D0 /* RotatingViewController.swift */; };
 		1860EEA71C295E0600A87541 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1860EEA61C295E0600A87541 /* AppDelegate.swift */; };
 		1860EEAC1C295E0600A87541 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1860EEAA1C295E0600A87541 /* Main.storyboard */; };
@@ -38,6 +41,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		180DA3431C5A215F004B6D6D /* SpriteKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SpriteKit.framework; path = System/Library/Frameworks/SpriteKit.framework; sourceTree = SDKROOT; };
+		180DA34B1C5A2938004B6D6D /* RotatingScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = RotatingScene.sks; sourceTree = "<group>"; };
+		180DA34D1C5A294E004B6D6D /* RotatingScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RotatingScene.swift; sourceTree = "<group>"; };
 		181ED4D81C4E2BAB00AA99D0 /* RotatingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RotatingViewController.swift; sourceTree = "<group>"; };
 		1860EEA31C295E0600A87541 /* CognitiveGames.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CognitiveGames.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1860EEA61C295E0600A87541 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -62,6 +68,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				180DA3441C5A215F004B6D6D /* SpriteKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -86,6 +93,8 @@
 			isa = PBXGroup;
 			children = (
 				181ED4D81C4E2BAB00AA99D0 /* RotatingViewController.swift */,
+				180DA34B1C5A2938004B6D6D /* RotatingScene.sks */,
+				180DA34D1C5A294E004B6D6D /* RotatingScene.swift */,
 			);
 			path = Rotating;
 			sourceTree = "<group>";
@@ -93,6 +102,7 @@
 		1860EE9A1C295E0600A87541 = {
 			isa = PBXGroup;
 			children = (
+				180DA3431C5A215F004B6D6D /* SpriteKit.framework */,
 				1860EEA51C295E0600A87541 /* CognitiveGames */,
 				1860EEBA1C295E0600A87541 /* CognitiveGamesTests */,
 				1860EEC51C295E0600A87541 /* CognitiveGamesUITests */,
@@ -307,6 +317,7 @@
 			files = (
 				1860EEB11C295E0600A87541 /* LaunchScreen.storyboard in Resources */,
 				1860EEAE1C295E0600A87541 /* Assets.xcassets in Resources */,
+				180DA34C1C5A2938004B6D6D /* RotatingScene.sks in Resources */,
 				1860EEAC1C295E0600A87541 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -333,6 +344,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1860EEDB1C29658700A87541 /* ViewController.swift in Sources */,
+				180DA34E1C5A294E004B6D6D /* RotatingScene.swift in Sources */,
 				1860EEE21C2968D800A87541 /* SortCollectionViewCell.swift in Sources */,
 				181ED4D91C4E2BAB00AA99D0 /* RotatingViewController.swift in Sources */,
 				1860EEDD1C2965BF00A87541 /* MainCollectionViewCell.swift in Sources */,

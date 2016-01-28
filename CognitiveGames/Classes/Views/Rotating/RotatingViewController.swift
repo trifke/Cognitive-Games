@@ -7,37 +7,31 @@
 //
 
 import UIKit
+import SpriteKit
 
 class RotatingViewController: UIViewController {
 
-    @IBOutlet weak var viewHolder: UIView!
+    @IBOutlet weak var viewHolder: SKView!
     
+    var level: Int = 2
+    var gameScene = RotatingScene(fileNamed: "RotatingScene")
+
     override func viewDidLoad()
     {
         super.viewDidLoad()
-
-        let rotationAnimation: CABasicAnimation = CABasicAnimation(keyPath: "transform.rotation.z")
-        rotationAnimation.toValue = NSNumber(double: M_PI * 2.0)
-        rotationAnimation.duration = 36
-        rotationAnimation.cumulative = true
-        rotationAnimation.repeatCount = Float.infinity
         
-        viewHolder.layer.addAnimation(rotationAnimation, forKey: "rotatingAnimation")
-        
-        viewHolder.layer.cornerRadius = (UIScreen.mainScreen().bounds.size.width - 80) / 2
-        viewHolder.layer.borderColor = UIColor.lightGrayColor().CGColor
-        viewHolder.layer.borderWidth = 1.0
-        
-        for (var i = 0; i < 10; i++)
+        if (gameScene != nil)
         {
-            let radius: Double = Double(viewHolder.layer.cornerRadius)
-            let angle: Double = 2.0 * M_PI * Double(i) / 10
-            let x: Double = radius + radius * cos(angle)
-            let y: Double = radius + radius * sin(angle)
-            let button: UIButton = UIButton(frame: CGRect(x: x - 38, y: y - 36, width: 72.0, height: 72.0))
-            button.backgroundColor = UIColor.greenColor()
-            button.layer.cornerRadius = 36
-            viewHolder.addSubview(button)
+            // Configure the view.
+            let skView = self.viewHolder as SKView
+            skView.showsFPS = false
+            skView.showsNodeCount = false
+            skView.ignoresSiblingOrder = true
+            
+            gameScene!.backgroundColor = UIColor.whiteColor()
+            gameScene!.size = self.viewHolder.bounds.size
+            
+            skView.presentScene(gameScene)
         }
         
         // Do any additional setup after loading the view.
@@ -49,4 +43,42 @@ class RotatingViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    //    MARK: button
+    
+    @IBAction func goButtonTapped(sender: AnyObject)
+    {
+        gameScene!.array = []
+        gameScene!.arrayCheck = []
+        for (var i = 0; i < level; i++)
+        {
+            NSTimer.scheduledTimerWithTimeInterval(Double(i * 2) * 0.8, target: self, selector: Selector("show:"), userInfo: i, repeats: false)
+            NSTimer.scheduledTimerWithTimeInterval(Double(i * 2 + 1) * 0.8, target: self, selector: Selector("hide:"), userInfo: i, repeats: false)
+        }
+    }
+    
+    func show(timer: NSTimer)
+    {
+        let node = gameScene?.arrayNodes[randomItem()] as! SKShapeNode
+        node.fillColor = SKColor.orangeColor()
+    }
+    
+    func hide(timer: NSTimer)
+    {
+        let node = gameScene?.arrayNodes[gameScene!.array[timer.userInfo as! Int] as! Int] as! SKShapeNode
+        node.fillColor = SKColor.grayColor()
+    }
+    
+    func randomItem() -> Int
+    {
+        var random = Int(arc4random_uniform(10))
+        
+        while gameScene!.array.containsObject(random)
+        {
+            random = Int(arc4random_uniform(10))
+        }
+        
+        gameScene!.array.addObject(random)
+        
+        return random;
+    }
 }
