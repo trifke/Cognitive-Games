@@ -14,32 +14,38 @@ class MainCollectionViewCell: UICollectionViewCell
     
     @IBOutlet weak var labelDescription: UILabel!
     
+    @IBOutlet weak var imageView: UIImageView!
+    
     internal func configureCell(row: Int)
     {
         switch (row)
         {
-        case 0:
-            self.labelTitle.text = "Sort"
-            self.labelDescription.text = "Out of order"
-            break
-            
-        case 1:
-            self.labelTitle.text = "Rotating"
-            self.labelDescription.text = "Circle of Joy"
-            break
-            
-        case 2:
-            self.labelTitle.text = "Numbers"
-            self.labelDescription.text = "Reverse sequence"
-            break
-            
-        case 3:
-            self.labelTitle.text = "Grid"
-            self.labelDescription.text = "4x4 Power"
-            break
-            
-        default:
-            break
+            case 0:
+                labelTitle.text = "Sort"
+                labelDescription.text = "Out of order"
+                imageView.image = UIImage(named: "sort")
+                break
+                
+            case 1:
+                labelTitle.text = "Rotating"
+                labelDescription.text = "Circle of Joy"
+                imageView.image = UIImage(named: "rotating")
+                break
+                
+            case 2:
+                labelTitle.text = "Numbers"
+                labelDescription.text = "Reverse sequence"
+                imageView.image = UIImage(named: "numbers")
+                break
+                
+            case 3:
+                labelTitle.text = "Grid"
+                labelDescription.text = "4x4 Power"
+                imageView.image = UIImage(named: "grid")
+                break
+                
+            default:
+                break
         }
     }
 }

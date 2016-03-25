@@ -64,6 +64,14 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
                 performSegueWithIdentifier("RotatingSegue", sender: nil)
                 break
             
+            case 2:
+                performSegueWithIdentifier("NumbersSegue", sender: nil)
+                break
+            
+            case 3:
+                performSegueWithIdentifier("GridSegue", sender: nil)
+                break
+            
             default:
                 break
         }

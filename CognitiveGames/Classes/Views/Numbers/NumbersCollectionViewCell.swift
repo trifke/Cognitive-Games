@@ -1,14 +1,14 @@
 //
-//  SortCollectionViewCell.swift
+//  NumbersCollectionViewCell.swift
 //  CognitiveGames
 //
-//  Created by Apple on 12/22/15.
-//  Copyright © 2015 Chaotic Neutral. All rights reserved.
+//  Created by Apple on 3/24/16.
+//  Copyright © 2016 Chaotic Neutral. All rights reserved.
 //
 
 import UIKit
 
-class SortCollectionViewCell: UICollectionViewCell
+class NumbersCollectionViewCell: UICollectionViewCell
 {
     @IBOutlet weak var view: UIView!
     
@@ -23,8 +23,6 @@ class SortCollectionViewCell: UICollectionViewCell
         view.layer.shadowRadius = 1.2
         view.layer.cornerRadius = 8.0
         view.backgroundColor = UIColor.grayColor()
-        
-        labelNumber.hidden = true
     }
-
+    
 }

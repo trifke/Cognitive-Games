@@ -1,14 +1,14 @@
 //
-//  SortViewController.swift
+//  NumbersViewController.swift
 //  CognitiveGames
 //
-//  Created by Apple on 12/22/15.
-//  Copyright © 2015 Chaotic Neutral. All rights reserved.
+//  Created by Apple on 3/24/16.
+//  Copyright © 2016 Chaotic Neutral. All rights reserved.
 //
 
 import UIKit
 
-class SortViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource
+class NumbersViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource
 {
     @IBOutlet weak var collectionView: UICollectionView!
     
@@ -53,9 +53,10 @@ class SortViewController: UIViewController, UICollectionViewDelegate, UICollecti
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell
     {
-        let cell: SortCollectionViewCell = collectionView.dequeueReusableCellWithReuseIdentifier("SortCell", forIndexPath: indexPath) as! SortCollectionViewCell
+        let cell: NumbersCollectionViewCell = collectionView.dequeueReusableCellWithReuseIdentifier("NumbersCell", forIndexPath: indexPath) as! NumbersCollectionViewCell
         
         cell.configureCell()
+        cell.labelNumber.text = "\(indexPath.row + 1)"
         
         return cell
     }
@@ -67,7 +68,7 @@ class SortViewController: UIViewController, UICollectionViewDelegate, UICollecti
         arrayCheck.addObject(indexPath.item)
         if arrayCheck.count == array.count
         {
-            if array.isEqualToArray(arrayCheck.reverse())
+            if array.isEqualToArray(arrayCheck.reverse()) == true
             {
                 print("bravo")
                 progressViewLevel.progress += 0.1
@@ -93,13 +94,13 @@ class SortViewController: UIViewController, UICollectionViewDelegate, UICollecti
     
     func collectionView(collectionView: UICollectionView, didHighlightItemAtIndexPath indexPath: NSIndexPath)
     {
-        let cell: SortCollectionViewCell = collectionView.cellForItemAtIndexPath(indexPath) as! SortCollectionViewCell
+        let cell: NumbersCollectionViewCell = collectionView.cellForItemAtIndexPath(indexPath) as! NumbersCollectionViewCell
         cell.view.backgroundColor = UIColor.lightGrayColor()
     }
     
     func collectionView(collectionView: UICollectionView, didUnhighlightItemAtIndexPath indexPath: NSIndexPath)
     {
-        let cell: SortCollectionViewCell = collectionView.cellForItemAtIndexPath(indexPath) as! SortCollectionViewCell
+        let cell: NumbersCollectionViewCell = collectionView.cellForItemAtIndexPath(indexPath) as! NumbersCollectionViewCell
         cell.view.backgroundColor = UIColor.grayColor()
     }
     
@@ -117,23 +118,20 @@ class SortViewController: UIViewController, UICollectionViewDelegate, UICollecti
         arrayCheck = []
         for i in 0 ..< level
         {
-            NSTimer.scheduledTimerWithTimeInterval(Double(i * 2) * 0.8, target: self, selector: #selector(SortViewController.show(_:)), userInfo: i, repeats: false)
-            NSTimer.scheduledTimerWithTimeInterval(Double(i * 2 + 1) * 0.8, target: self, selector: #selector(SortViewController.hide(_:)), userInfo: i, repeats: false)
+            NSTimer.scheduledTimerWithTimeInterval(Double(i * 2) * 0.8, target: self, selector: #selector(NumbersViewController.show(_:)), userInfo: i, repeats: false)
+            NSTimer.scheduledTimerWithTimeInterval(Double(i * 2 + 1) * 0.8, target: self, selector: #selector(NumbersViewController.hide(_:)), userInfo: i, repeats: false)
         }
     }
     
     func show(timer: NSTimer)
     {
-        let cell: SortCollectionViewCell = collectionView.cellForItemAtIndexPath(NSIndexPath(forItem: randomItem(), inSection: 0)) as! SortCollectionViewCell
-        cell.labelNumber.text = "\(level - (timer.userInfo as! Int))"
-        cell.labelNumber.hidden = false
+        let cell: NumbersCollectionViewCell = collectionView.cellForItemAtIndexPath(NSIndexPath(forItem: randomItem(), inSection: 0)) as! NumbersCollectionViewCell
         cell.view.backgroundColor = UIColor.orangeColor()
     }
     
     func hide(timer: NSTimer)
     {
-        let cell: SortCollectionViewCell = collectionView.cellForItemAtIndexPath(NSIndexPath(forItem: array[timer.userInfo as! Int] as! Int, inSection: 0)) as! SortCollectionViewCell
-        cell.labelNumber.hidden = true
+        let cell: NumbersCollectionViewCell = collectionView.cellForItemAtIndexPath(NSIndexPath(forItem: array[timer.userInfo as! Int] as! Int, inSection: 0)) as! NumbersCollectionViewCell
         cell.view.backgroundColor = UIColor.grayColor()
         
         if timer.userInfo as! Int == level - 1

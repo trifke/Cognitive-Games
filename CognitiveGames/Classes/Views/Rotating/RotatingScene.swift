@@ -9,17 +9,26 @@
 import UIKit
 import SpriteKit
 
+protocol ProgressUpdate
+{
+    func update(success: Bool)
+}
+
 class RotatingScene: SKScene
 {
     var arrayNodes: NSMutableArray = []
     var array: NSMutableArray = []
     var arrayCheck: NSMutableArray = []
     
+    var delegateProgress: ProgressUpdate? = nil
+    
+    var node: SKShapeNode = SKShapeNode()
+    
     override func didMoveToView(view: SKView)
     {
         let radius: Double = Double(240)
         
-        for (var i = 0; i < 10; i++)
+        for i in 0 ..< 10
         {
             let angle: Double = 2 * M_PI * Double(i) / 10
             let x: Double = 300 + radius * cos(angle)
@@ -51,20 +60,26 @@ class RotatingScene: SKScene
         let viewTouchLocation = touch.locationInView(self.view)
         let sceneTouchPoint = scene!.convertPointFromView(viewTouchLocation)
         let touchedNode = scene!.nodeAtPoint(sceneTouchPoint)
-        let node: SKShapeNode = touchedNode as! SKShapeNode
+        node = touchedNode as! SKShapeNode
+        node.fillColor = SKColor.lightGrayColor()
         
         arrayCheck.addObject(Int(node.name!)!)
         if arrayCheck.count == array.count
         {
             if array.isEqualToArray(arrayCheck as [AnyObject])
             {
-                print("bravo")
+                delegateProgress!.update(true)
             }
             else
             {
-                print("nube")
+                delegateProgress!.update(false)
             }
         }
+    }
+    
+    override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?)
+    {
+        node.fillColor = SKColor.grayColor()
     }
     
     override func update(currentTime: CFTimeInterval)

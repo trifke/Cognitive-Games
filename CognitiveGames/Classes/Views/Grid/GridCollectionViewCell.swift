@@ -1,19 +1,17 @@
 //
-//  SortCollectionViewCell.swift
+//  GridCollectionViewCell.swift
 //  CognitiveGames
 //
-//  Created by Apple on 12/22/15.
-//  Copyright © 2015 Chaotic Neutral. All rights reserved.
+//  Created by Apple on 3/25/16.
+//  Copyright © 2016 Chaotic Neutral. All rights reserved.
 //
 
 import UIKit
 
-class SortCollectionViewCell: UICollectionViewCell
+class GridCollectionViewCell: UICollectionViewCell
 {
     @IBOutlet weak var view: UIView!
-    
-    @IBOutlet weak var labelNumber: UILabel!
-    
+        
     internal func configureCell()
     {
         view.layer.masksToBounds = false
@@ -21,10 +19,7 @@ class SortCollectionViewCell: UICollectionViewCell
         view.layer.shadowOffset = CGSize(width: 4, height: 4)
         view.layer.shadowOpacity = 0.36
         view.layer.shadowRadius = 1.2
-        view.layer.cornerRadius = 8.0
+        view.layer.cornerRadius = (UIScreen.mainScreen().bounds.size.width / 4 - 10 - 16) / 2
         view.backgroundColor = UIColor.grayColor()
-        
-        labelNumber.hidden = true
     }
-
 }

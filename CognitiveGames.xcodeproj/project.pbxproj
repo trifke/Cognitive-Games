@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		180316E71CA52489003B9CE0 /* GridViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180316E61CA52489003B9CE0 /* GridViewController.swift */; };
+		180316E91CA524B9003B9CE0 /* GridCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180316E81CA524B9003B9CE0 /* GridCollectionViewCell.swift */; };
 		180DA3441C5A215F004B6D6D /* SpriteKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 180DA3431C5A215F004B6D6D /* SpriteKit.framework */; };
 		180DA34C1C5A2938004B6D6D /* RotatingScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 180DA34B1C5A2938004B6D6D /* RotatingScene.sks */; };
 		180DA34E1C5A294E004B6D6D /* RotatingScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180DA34D1C5A294E004B6D6D /* RotatingScene.swift */; };
@@ -21,6 +23,8 @@
 		1860EEDD1C2965BF00A87541 /* MainCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1860EEDC1C2965BF00A87541 /* MainCollectionViewCell.swift */; };
 		1860EEE01C2968C900A87541 /* SortViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1860EEDF1C2968C900A87541 /* SortViewController.swift */; };
 		1860EEE21C2968D800A87541 /* SortCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1860EEE11C2968D800A87541 /* SortCollectionViewCell.swift */; };
+		18FEC0AB1CA41DB800267C7E /* NumbersCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FEC0AA1CA41DB800267C7E /* NumbersCollectionViewCell.swift */; };
+		18FEC0AD1CA41DE300267C7E /* NumbersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FEC0AC1CA41DE300267C7E /* NumbersViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,6 +45,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		180316E61CA52489003B9CE0 /* GridViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GridViewController.swift; sourceTree = "<group>"; };
+		180316E81CA524B9003B9CE0 /* GridCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GridCollectionViewCell.swift; sourceTree = "<group>"; };
 		180DA3431C5A215F004B6D6D /* SpriteKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SpriteKit.framework; path = System/Library/Frameworks/SpriteKit.framework; sourceTree = SDKROOT; };
 		180DA34B1C5A2938004B6D6D /* RotatingScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = RotatingScene.sks; sourceTree = "<group>"; };
 		180DA34D1C5A294E004B6D6D /* RotatingScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RotatingScene.swift; sourceTree = "<group>"; };
@@ -61,6 +67,8 @@
 		1860EEDC1C2965BF00A87541 /* MainCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainCollectionViewCell.swift; sourceTree = "<group>"; };
 		1860EEDF1C2968C900A87541 /* SortViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SortViewController.swift; sourceTree = "<group>"; };
 		1860EEE11C2968D800A87541 /* SortCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SortCollectionViewCell.swift; sourceTree = "<group>"; };
+		18FEC0AA1CA41DB800267C7E /* NumbersCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NumbersCollectionViewCell.swift; sourceTree = "<group>"; };
+		18FEC0AC1CA41DE300267C7E /* NumbersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NumbersViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +97,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		180316E51CA5247C003B9CE0 /* Grid */ = {
+			isa = PBXGroup;
+			children = (
+				180316E61CA52489003B9CE0 /* GridViewController.swift */,
+				180316E81CA524B9003B9CE0 /* GridCollectionViewCell.swift */,
+			);
+			path = Grid;
+			sourceTree = "<group>";
+		};
 		181ED4D71C4E2B9400AA99D0 /* Rotating */ = {
 			isa = PBXGroup;
 			children = (
@@ -186,6 +203,8 @@
 		1860EED81C295E6F00A87541 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				180316E51CA5247C003B9CE0 /* Grid */,
+				18FEC0A71CA41D8600267C7E /* Numbers */,
 				181ED4D71C4E2B9400AA99D0 /* Rotating */,
 				1860EEDE1C2968BA00A87541 /* Sort */,
 				1860EED91C29655F00A87541 /* Main */,
@@ -209,6 +228,15 @@
 				1860EEE11C2968D800A87541 /* SortCollectionViewCell.swift */,
 			);
 			path = Sort;
+			sourceTree = "<group>";
+		};
+		18FEC0A71CA41D8600267C7E /* Numbers */ = {
+			isa = PBXGroup;
+			children = (
+				18FEC0AC1CA41DE300267C7E /* NumbersViewController.swift */,
+				18FEC0AA1CA41DB800267C7E /* NumbersCollectionViewCell.swift */,
+			);
+			path = Numbers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -343,10 +371,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				18FEC0AD1CA41DE300267C7E /* NumbersViewController.swift in Sources */,
 				1860EEDB1C29658700A87541 /* ViewController.swift in Sources */,
 				180DA34E1C5A294E004B6D6D /* RotatingScene.swift in Sources */,
+				18FEC0AB1CA41DB800267C7E /* NumbersCollectionViewCell.swift in Sources */,
 				1860EEE21C2968D800A87541 /* SortCollectionViewCell.swift in Sources */,
+				180316E91CA524B9003B9CE0 /* GridCollectionViewCell.swift in Sources */,
 				181ED4D91C4E2BAB00AA99D0 /* RotatingViewController.swift in Sources */,
+				180316E71CA52489003B9CE0 /* GridViewController.swift in Sources */,
 				1860EEDD1C2965BF00A87541 /* MainCollectionViewCell.swift in Sources */,
 				1860EEE01C2968C900A87541 /* SortViewController.swift in Sources */,
 				1860EEA71C295E0600A87541 /* AppDelegate.swift in Sources */,
