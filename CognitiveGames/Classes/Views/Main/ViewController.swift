@@ -12,10 +12,21 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
 {
     @IBOutlet weak var collectionView: UICollectionView!
     
+    @IBOutlet weak var buttonMenu: UIBarButtonItem!
+    
     override func viewDidLoad()
     {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        let revealViewControllerr = revealViewController()
+        if (revealViewControllerr != nil)
+        {
+            buttonMenu.target = revealViewControllerr
+            buttonMenu.action = #selector(SWRevealViewController.revealToggle(_:))
+            navigationController?.navigationBar.addGestureRecognizer(revealViewController().panGestureRecognizer())
+        }
+        
     }
 
     override func didReceiveMemoryWarning()

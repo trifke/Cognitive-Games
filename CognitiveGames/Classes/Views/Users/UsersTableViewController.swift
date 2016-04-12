@@ -24,14 +24,23 @@ class UsersTableViewController: UITableViewController
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        
     }
     
     override func viewWillAppear(animated: Bool)
     {
         super.viewWillAppear(animated)
         
+        navigationController?.navigationBarHidden = false
         users = realm.objects(User)
         tableView.reloadData()
+    }
+    
+    override func viewWillDisappear(animated: Bool)
+    {
+        super.viewWillDisappear(animated)
+        
+        navigationController?.navigationBarHidden = true
     }
 
     override func didReceiveMemoryWarning()

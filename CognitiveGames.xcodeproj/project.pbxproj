@@ -81,6 +81,7 @@
 		1860EEDF1C2968C900A87541 /* SortViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SortViewController.swift; sourceTree = "<group>"; };
 		1860EEE11C2968D800A87541 /* SortCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SortCollectionViewCell.swift; sourceTree = "<group>"; };
 		189F97FB1CB79BAB00E76821 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		18C495021CBCF0290037168A /* CognitiveGames-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CognitiveGames-Bridging-Header.h"; sourceTree = "<group>"; };
 		18FEC0AA1CA41DB800267C7E /* NumbersCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NumbersCollectionViewCell.swift; sourceTree = "<group>"; };
 		18FEC0AC1CA41DE300267C7E /* NumbersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NumbersViewController.swift; sourceTree = "<group>"; };
 		B924EDE9A4EFEA4D5B449FC7 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -224,6 +225,7 @@
 				1860EEAF1C295E0600A87541 /* LaunchScreen.storyboard */,
 				1860EED41C295E6F00A87541 /* Classes */,
 				1860EEB21C295E0600A87541 /* Info.plist */,
+				18C495021CBCF0290037168A /* CognitiveGames-Bridging-Header.h */,
 			);
 			path = CognitiveGames;
 			sourceTree = "<group>";
@@ -677,6 +679,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ChaoticNeutral.CognitiveGames;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "CognitiveGames/CognitiveGames-Bridging-Header.h";
 			};
 			name = Debug;
 		};
@@ -689,6 +692,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ChaoticNeutral.CognitiveGames;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "CognitiveGames/CognitiveGames-Bridging-Header.h";
 			};
 			name = Release;
 		};

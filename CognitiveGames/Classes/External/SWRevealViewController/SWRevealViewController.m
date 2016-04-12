@@ -762,7 +762,7 @@ const int FrontViewPositionNone = 0xff;
 }
 
 
-- (NSUInteger)supportedInterfaceOrientations
+- (UIInterfaceOrientationMask)supportedInterfaceOrientations
 {
     // we could have simply not implemented this, but we choose to call super to make explicit that we
     // want the default behavior.
@@ -1707,11 +1707,11 @@ const int FrontViewPositionNone = 0xff;
             [self performSegueWithIdentifier:SWSegueFrontIdentifier sender:nil];
         }
         @catch(NSException *exception) {}
-        
-        @try
-        {
-            [self performSegueWithIdentifier:SWSegueRightIdentifier sender:nil];
-        }
+//          Uncomment if you need right menu
+//        @try
+//        {
+//            [self performSegueWithIdentifier:SWSegueRightIdentifier sender:nil];
+//        }
         @catch(NSException *exception) {}
     }
 }
