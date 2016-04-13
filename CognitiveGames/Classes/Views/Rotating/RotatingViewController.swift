@@ -72,14 +72,14 @@ class RotatingViewController: UIViewController, ProgressUpdate
     
     func show(timer: NSTimer)
     {
-        let node = gameScene?.arrayNodes[randomItem()] as! SKShapeNode
-        node.fillColor = SKColor.orangeColor()
+        let node = gameScene?.arrayNodes[randomItem()]
+        node!.fillColor = SKColor.orangeColor()
     }
     
     func hide(timer: NSTimer)
     {
-        let node = gameScene?.arrayNodes[gameScene!.array[timer.userInfo as! Int] as! Int] as! SKShapeNode
-        node.fillColor = SKColor.grayColor()
+        let node = gameScene?.arrayNodes[gameScene!.array[timer.userInfo as! Int]]
+        node!.fillColor = SKColor.grayColor()
         
         if timer.userInfo as! Int == level - 1
         {
@@ -91,12 +91,12 @@ class RotatingViewController: UIViewController, ProgressUpdate
     {
         var random = Int(arc4random_uniform(10))
         
-        while gameScene!.array.containsObject(random)
+        while gameScene!.array.contains(random)
         {
             random = Int(arc4random_uniform(10))
         }
         
-        gameScene!.array.addObject(random)
+        gameScene!.array.append(random)
         
         return random;
     }

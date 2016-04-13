@@ -21,8 +21,8 @@ class NumbersViewController: UIViewController, UICollectionViewDelegate, UIColle
     @IBOutlet weak var labelDone: UILabel!
     
     var level: Int = 2
-    var array: NSMutableArray = []
-    var arrayCheck: NSMutableArray = []
+    var array: [Int] = []
+    var arrayCheck: [Int] = []
     
     override func viewDidLoad()
     {
@@ -65,10 +65,10 @@ class NumbersViewController: UIViewController, UICollectionViewDelegate, UIColle
     
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath)
     {
-        arrayCheck.addObject(indexPath.item)
+        arrayCheck.append(indexPath.item)
         if arrayCheck.count == array.count
         {
-            if array.isEqualToArray(arrayCheck.reverse()) == true
+            if array.elementsEqual(arrayCheck.reverse()) == true
             {
                 print("bravo")
                 progressViewLevel.progress += 0.1
@@ -131,7 +131,7 @@ class NumbersViewController: UIViewController, UICollectionViewDelegate, UIColle
     
     func hide(timer: NSTimer)
     {
-        let cell: NumbersCollectionViewCell = collectionView.cellForItemAtIndexPath(NSIndexPath(forItem: array[timer.userInfo as! Int] as! Int, inSection: 0)) as! NumbersCollectionViewCell
+        let cell: NumbersCollectionViewCell = collectionView.cellForItemAtIndexPath(NSIndexPath(forItem: array[timer.userInfo as! Int], inSection: 0)) as! NumbersCollectionViewCell
         cell.view.backgroundColor = UIColor.grayColor()
         
         if timer.userInfo as! Int == level - 1
@@ -144,12 +144,12 @@ class NumbersViewController: UIViewController, UICollectionViewDelegate, UIColle
     {
         var random = Int(arc4random_uniform(16))
         
-        while array.containsObject(random)
+        while array.contains(random)
         {
             random = Int(arc4random_uniform(16))
         }
         
-        array.addObject(random)
+        array.append(random)
         
         return random;
     }

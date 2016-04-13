@@ -16,9 +16,9 @@ protocol ProgressUpdate
 
 class RotatingScene: SKScene
 {
-    var arrayNodes: NSMutableArray = []
-    var array: NSMutableArray = []
-    var arrayCheck: NSMutableArray = []
+    var arrayNodes: [SKShapeNode] = []
+    var array: [Int] = []
+    var arrayCheck: [Int] = []
     
     var delegateProgress: ProgressUpdate? = nil
     
@@ -40,7 +40,7 @@ class RotatingScene: SKScene
             node.fillColor = SKColor.grayColor()
             node.name = "\(i)"
             self.addChild(node)
-            arrayNodes.addObject(node)
+            arrayNodes.append(node)
             
             let dx = node.position.x - self.frame.width / 2
             let dy = node.position.y - self.frame.height / 2
@@ -63,10 +63,10 @@ class RotatingScene: SKScene
         node = touchedNode as! SKShapeNode
         node.fillColor = SKColor.lightGrayColor()
         
-        arrayCheck.addObject(Int(node.name!)!)
+        arrayCheck.append(Int(node.name!)!)
         if arrayCheck.count == array.count
         {
-            if array.isEqualToArray(arrayCheck as [AnyObject])
+            if array.elementsEqual(arrayCheck)
             {
                 delegateProgress!.update(true)
             }
