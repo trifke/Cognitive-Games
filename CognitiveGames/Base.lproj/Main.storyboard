@@ -306,7 +306,11 @@
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Sort" id="K4b-7v-QEx">
-                        <barButtonItem key="rightBarButtonItem" image="info" id="W1O-qV-Idq"/>
+                        <barButtonItem key="rightBarButtonItem" image="info" id="W1O-qV-Idq">
+                            <connections>
+                                <segue destination="weU-mv-RDc" kind="presentation" id="N7o-jb-hRx"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
@@ -322,6 +326,48 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1h7-E0-eeN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3717" y="174"/>
+        </scene>
+        <!--Tutorial View Controller-->
+        <scene sceneID="hRz-Y3-Bfl">
+            <objects>
+                <viewController id="weU-mv-RDc" customClass="TutorialViewController" customModule="CognitiveGames" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="3Wk-YU-I5K"/>
+                        <viewControllerLayoutGuide type="bottom" id="ucF-tc-ZrO"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="IQi-Fu-4DN">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sCJ-wq-aY8">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <connections>
+                                    <outlet property="delegate" destination="weU-mv-RDc" id="OtL-yd-ye8"/>
+                                </connections>
+                            </scrollView>
+                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="FBZ-80-djz">
+                                <rect key="frame" x="20" y="543" width="560" height="37"/>
+                            </pageControl>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="ucF-tc-ZrO" firstAttribute="top" secondItem="FBZ-80-djz" secondAttribute="bottom" constant="20" id="1qB-oZ-PYC"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="FBZ-80-djz" secondAttribute="leading" id="EKt-d3-k6u"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="FBZ-80-djz" secondAttribute="trailing" id="H50-Cw-1HE"/>
+                            <constraint firstItem="sCJ-wq-aY8" firstAttribute="top" secondItem="3Wk-YU-I5K" secondAttribute="bottom" constant="-20" id="IL6-bf-ABO"/>
+                            <constraint firstItem="sCJ-wq-aY8" firstAttribute="leading" secondItem="IQi-Fu-4DN" secondAttribute="leadingMargin" constant="-20" id="IhI-74-xj5"/>
+                            <constraint firstItem="ucF-tc-ZrO" firstAttribute="top" secondItem="sCJ-wq-aY8" secondAttribute="bottom" id="LDm-lY-ixj"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="sCJ-wq-aY8" secondAttribute="trailing" constant="-20" id="tGw-q4-Uc9"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="pageControl" destination="FBZ-80-djz" id="cWe-oU-AZT"/>
+                        <outlet property="scrollView" destination="sCJ-wq-aY8" id="CoH-46-tIW"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3c4-Ha-kOO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4470" y="174"/>
         </scene>
         <!--Rotating-->
         <scene sceneID="psw-pg-Rdx">

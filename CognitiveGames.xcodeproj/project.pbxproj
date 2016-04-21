@@ -18,6 +18,8 @@
 		181DECBD1CBB9F8A00180876 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181DECBC1CBB9F8A00180876 /* RegisterViewController.swift */; };
 		181DECC01CBBBDBF00180876 /* UsersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181DECBF1CBBBDBF00180876 /* UsersTableViewController.swift */; };
 		181ED4D91C4E2BAB00AA99D0 /* RotatingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181ED4D81C4E2BAB00AA99D0 /* RotatingViewController.swift */; };
+		18283ED81CC8BF09009833E8 /* ShanpshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18283ED71CC8BF09009833E8 /* ShanpshotHelper.swift */; };
+		18417C411CC8D03E00BAB7C8 /* TutorialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18417C401CC8D03E00BAB7C8 /* TutorialViewController.swift */; };
 		1860EEA71C295E0600A87541 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1860EEA61C295E0600A87541 /* AppDelegate.swift */; };
 		1860EEAC1C295E0600A87541 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1860EEAA1C295E0600A87541 /* Main.storyboard */; };
 		1860EEAE1C295E0600A87541 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1860EEAD1C295E0600A87541 /* Assets.xcassets */; };
@@ -64,6 +66,8 @@
 		181DECBC1CBB9F8A00180876 /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		181DECBF1CBBBDBF00180876 /* UsersTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UsersTableViewController.swift; sourceTree = "<group>"; };
 		181ED4D81C4E2BAB00AA99D0 /* RotatingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RotatingViewController.swift; sourceTree = "<group>"; };
+		18283ED71CC8BF09009833E8 /* ShanpshotHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShanpshotHelper.swift; sourceTree = "<group>"; };
+		18417C401CC8D03E00BAB7C8 /* TutorialViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TutorialViewController.swift; sourceTree = "<group>"; };
 		1860EEA31C295E0600A87541 /* CognitiveGames.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CognitiveGames.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1860EEA61C295E0600A87541 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1860EEAB1C295E0600A87541 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -193,6 +197,14 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		18417C3F1CC8D02700BAB7C8 /* Tutorial */ = {
+			isa = PBXGroup;
+			children = (
+				18417C401CC8D03E00BAB7C8 /* TutorialViewController.swift */,
+			);
+			path = Tutorial;
+			sourceTree = "<group>";
+		};
 		1860EE9A1C295E0600A87541 = {
 			isa = PBXGroup;
 			children = (
@@ -242,6 +254,7 @@
 		1860EEC51C295E0600A87541 /* CognitiveGamesUITests */ = {
 			isa = PBXGroup;
 			children = (
+				18283ED71CC8BF09009833E8 /* ShanpshotHelper.swift */,
 				1860EEC61C295E0600A87541 /* CognitiveGamesUITests.swift */,
 				1860EEC81C295E0600A87541 /* Info.plist */,
 			);
@@ -286,6 +299,7 @@
 		1860EED81C295E6F00A87541 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				18417C3F1CC8D02700BAB7C8 /* Tutorial */,
 				181DECBE1CBBBDAC00180876 /* Users */,
 				181DECBB1CBB9F8000180876 /* Register */,
 				181DECB81CBB9B0200180876 /* Landing */,
@@ -526,6 +540,7 @@
 				181DECB51CBB8E2600180876 /* SWRevealViewController.m in Sources */,
 				181ED4D91C4E2BAB00AA99D0 /* RotatingViewController.swift in Sources */,
 				180316E71CA52489003B9CE0 /* GridViewController.swift in Sources */,
+				18417C411CC8D03E00BAB7C8 /* TutorialViewController.swift in Sources */,
 				189F97FC1CB79BAB00E76821 /* User.swift in Sources */,
 				181DECBD1CBB9F8A00180876 /* RegisterViewController.swift in Sources */,
 				1860EEDD1C2965BF00A87541 /* MainCollectionViewCell.swift in Sources */,
@@ -548,6 +563,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				18283ED81CC8BF09009833E8 /* ShanpshotHelper.swift in Sources */,
 				1860EEC71C295E0600A87541 /* CognitiveGamesUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
