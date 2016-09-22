@@ -8,16 +8,24 @@
 
 import UIKit
 
-class TutorialViewController: UIViewController, UIScrollViewDelegate
+class TutorialViewController: UIViewController
 {
+    @IBOutlet weak var labelText: UILabel!
 
-    @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var imageViewTutorial: UIImageView!
     
-    @IBOutlet weak var pageControl: UIPageControl!
+    @IBOutlet weak var buttonOK: UIButton! {
+        didSet {
+            buttonOK.layer.cornerRadius = 8.0
+        }
+    }
     
-    var pageImages = []
+    var game = ""
     
-    var pageViews = [AnyObject]()
+    let text = ["sort" : "Neka od polja će prikazati brojeve. \nZapamtite gde je koji broj. \nVaš zadatak je da sortirate brojeve tako što ćete prvo kliknuti na polje gde je je bio broj 1, pa na polje gde je bio broj 2.",
+                "numbers" : "Čućete brojeve. \nVaš zadatak je da unesete brojeve u obrnutom poretku",
+                "grid" : "Neka od polja će se osvetliti. \nVaš zadatak je da kliknete na polja u istom poretku.",
+                "rotating" : "Lampice se kreću u krug. Neke od lampica će se osvetiliti u određenom poretku. Pošto se kreću morate da pazite gde je koja. Vaš zadatak je da kliknete na lampice istim redom kojim su se osvetljavale"]
     
     override func viewDidLoad()
     {
@@ -25,143 +33,46 @@ class TutorialViewController: UIViewController, UIScrollViewDelegate
 
         // Do any additional setup after loading the view.
         
-        loadImages([UIImage(named: "Sort1_framed")!, UIImage(named: "Sort2_framed")!, UIImage(named: "Sort3_framed")!])
+        labelText.text = text[game]
     }
 
+    override func viewWillAppear(_ animated: Bool)
+    {
+        super.viewWillAppear(animated)
+        
+        var imgListArray = [UIImage](repeating: UIImage(), count: 8)
+        for i in 0...7
+        {
+            let strImageName = game + "\(i).png"
+            let image = UIImage(named: strImageName)
+            imgListArray[i] = image!
+        }
+        
+        imageViewTutorial.animationImages = imgListArray
+        imageViewTutorial.animationDuration = 8.0
+        imageViewTutorial.animationRepeatCount = Int.max
+        imageViewTutorial.startAnimating()
+        
+        if game == "rotating"
+        {
+            let rotationAnimation = CABasicAnimation(keyPath: "transform.rotation.z")
+            rotationAnimation.toValue = M_PI * 2.0 /* full rotation*/
+            rotationAnimation.duration = 16
+            rotationAnimation.isCumulative = true
+            rotationAnimation.repeatCount = FLT_MAX
+
+            imageViewTutorial.layer.add(rotationAnimation, forKey: "rotationAnimation")
+        }
+    }
+    
     override func didReceiveMemoryWarning()
     {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-    func loadImages(arrayImages : [UIImage])
+    @IBAction func buttonOKTapped(_ sender: AnyObject)
     {
-        if (arrayImages.count > 0)
-        {
-            // 1
-            pageImages = arrayImages
-            let pageCount = arrayImages.count;
-    
-            // 2
-            pageControl.currentPage = 0;
-            pageControl.numberOfPages = pageCount;
-    
-            // 3
-            pageViews = [];
-            for _ in 0 ..< pageCount
-            {
-                pageViews.append(NSNull)
-            }
-    
-            // 4
-            UIView.animateWithDuration(0.1, animations: { }, completion: { (finished: Bool) in
-                let pageScrollViewSize = self.scrollView.frame.size
-                self.scrollView.contentSize = CGSize(width: pageScrollViewSize.width * CGFloat(self.pageImages.count), height: pageScrollViewSize.height)
-                
-                // 5
-                self.loadVisablePages()
-            })
-        }
-        else
-        {
-            let label = UILabel(frame: view.frame)
-            label.text = "No images available";
-            label.textAlignment = .Center;
-            
-            view.addSubview(label)
-            pageControl.removeFromSuperview()
-        }
-    }
-    
-    func loadPage(page : Int)
-    {
-        if (page < 0 || page >= self.pageImages.count)
-        {
-            // If it's outside the range of what you have to display, then do nothing
-            return
-        }
-    
-        // 1
-        if pageViews[page] is UIImageView
-        {
-            // Do nothing. The view is already loaded.
-        }
-        else
-        {
-            // 2
-            var frame = scrollView.bounds;
-            frame.origin.x = frame.size.width * CGFloat(page);
-            frame.origin.y = 0.0;
-            
-            // 3
-            let newPageView = UIImageView(image: pageImages[page] as? UIImage)
-            newPageView.contentMode = .ScaleAspectFill;
-            newPageView.frame = frame;
-            newPageView.tag = page;
-            
-            scrollView.addSubview(newPageView)
-            
-            // 4
-            pageViews[page] = newPageView;
-        }
-    }
-    
-    func purgePage(page : Int)
-    {
-        if (page < 0 || page >= self.pageImages.count)
-        {
-            // If it's outside the range of what you have to display, then do nothing
-            return
-        }
-    
-        // Remove a page from the scroll view and reset the container array
-        if let pageView = pageViews[page] as? UIImageView
-        {
-            pageView.removeFromSuperview()
-            pageViews[page] = NSNull()
-        }
-    }
-    
-    func loadVisablePages()
-    {
-        // First, determine which page is currently visible
-        let pageWidth = scrollView.frame.size.width;
-        let page = floor((scrollView.contentOffset.x * 2.0 + pageWidth) / (pageWidth * 2.0));
-    
-        // Update the page control
-        pageControl.currentPage = Int(page)
-    
-        // Work out which pages you want to load
-        let firstPage = page - 1;
-        let lastPage = page + 1;
-    
-        // Purge anything before the first page
-        if firstPage >= 0
-        {
-            for i in 0 ..< Int(firstPage)
-            {
-                purgePage(i)
-            }
-        }
-    
-        // Load pages in our range
-        for i in Int(firstPage) ..< Int(lastPage)
-        {
-            loadPage(i)
-        }
-    
-        // Purge anything after the last page
-        if Int(lastPage) + 1 <= pageImages.count
-        {
-            for i in Int(lastPage) + 1 ..< pageImages.count
-            {
-                purgePage(i)
-            }
-        }
-    }
-    
-    func scrollViewDidScroll(scrollView: UIScrollView)
-    {
-        loadVisablePages()
+        dismiss(animated: true, completion: nil)
     }
 }

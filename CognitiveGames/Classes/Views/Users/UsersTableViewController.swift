@@ -27,20 +27,20 @@ class UsersTableViewController: UITableViewController
         
     }
     
-    override func viewWillAppear(animated: Bool)
+    override func viewWillAppear(_ animated: Bool)
     {
         super.viewWillAppear(animated)
         
-        navigationController?.navigationBarHidden = false
-        users = realm.objects(User)
+        navigationController?.isNavigationBarHidden = false
+        users = realm.objects(User.self)
         tableView.reloadData()
     }
     
-    override func viewWillDisappear(animated: Bool)
+    override func viewWillDisappear(_ animated: Bool)
     {
         super.viewWillDisappear(animated)
         
-        navigationController?.navigationBarHidden = true
+        navigationController?.isNavigationBarHidden = true
     }
 
     override func didReceiveMemoryWarning()
@@ -51,39 +51,57 @@ class UsersTableViewController: UITableViewController
 
     // MARK: - Table view data source
 
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int
+    override func numberOfSections(in tableView: UITableView) -> Int
     {
         // #warning Incomplete implementation, return the number of sections
         return 1
     }
 
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
         // #warning Incomplete implementation, return the number of rows
         return users!.count
     }
     
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("cellUser", forIndexPath: indexPath)
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
+    {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cellUser", for: indexPath)
 
-        cell.textLabel?.text = users![indexPath.row].name
+        cell.textLabel?.text = users![(indexPath as NSIndexPath).row].name
         
         return cell
     }
     
-    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
+    {
+        UserDefaults.standard.set(users![(indexPath as NSIndexPath).row].id, forKey: "id")
+        _ = navigationController?.popViewController(animated: true)
+    }
+    
+    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool
+    {
         return true
     }
     
-    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        if editingStyle == UITableViewCellEditingStyle.Delete
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath)
+    {
+        if editingStyle == UITableViewCellEditingStyle.delete
         {
-            let user = realm.objects(User).filter("id = '\(users![indexPath.row].id)'")
-            try! realm.write {
-                realm.delete(user)
+            let user = realm.object(ofType: User.self, forPrimaryKey: users![(indexPath as NSIndexPath).row].id as AnyObject)
+            if let id = UserDefaults.standard.object(forKey: "id")
+            {
+                if id as! String == (user?.id)!
+                {
+                    UserDefaults.standard.removeObject(forKey: "id")
+                    UserDefaults.standard.synchronize()
+                }
             }
-            users = realm.objects(User)
-            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
+            try! realm.write {
+                realm.delete(user!)
+            }
+            users = realm.objects(User.self)
+           
+            tableView.deleteRows(at: [indexPath], with: .automatic)
         }
     }
     

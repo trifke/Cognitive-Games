@@ -11,7 +11,7 @@ import RealmSwift
 
 class User: Object
 {
-    dynamic var id = NSUUID().UUIDString
+    dynamic var id = UUID().uuidString
     dynamic var name = ""
     dynamic var age = 0
     

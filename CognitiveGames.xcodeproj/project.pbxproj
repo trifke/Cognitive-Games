@@ -33,7 +33,18 @@
 		189F97FC1CB79BAB00E76821 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 189F97FB1CB79BAB00E76821 /* User.swift */; };
 		18FEC0AB1CA41DB800267C7E /* NumbersCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FEC0AA1CA41DB800267C7E /* NumbersCollectionViewCell.swift */; };
 		18FEC0AD1CA41DE300267C7E /* NumbersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FEC0AC1CA41DE300267C7E /* NumbersViewController.swift */; };
-		32D08175AA23158D4D2F68F9 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B924EDE9A4EFEA4D5B449FC7 /* Pods.framework */; };
+		3B1AA8331D898A9400461490 /* 0.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 3B1AA8291D898A9400461490 /* 0.mp3 */; };
+		3B1AA8341D898A9400461490 /* 1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 3B1AA82A1D898A9400461490 /* 1.mp3 */; };
+		3B1AA8351D898A9400461490 /* 2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 3B1AA82B1D898A9400461490 /* 2.mp3 */; };
+		3B1AA8361D898A9400461490 /* 3.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 3B1AA82C1D898A9400461490 /* 3.mp3 */; };
+		3B1AA8371D898A9400461490 /* 4.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 3B1AA82D1D898A9400461490 /* 4.mp3 */; };
+		3B1AA8381D898A9400461490 /* 5.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 3B1AA82E1D898A9400461490 /* 5.mp3 */; };
+		3B1AA8391D898A9400461490 /* 6.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 3B1AA82F1D898A9400461490 /* 6.mp3 */; };
+		3B1AA83A1D898A9400461490 /* 7.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 3B1AA8301D898A9400461490 /* 7.mp3 */; };
+		3B1AA83B1D898A9400461490 /* 8.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 3B1AA8311D898A9400461490 /* 8.mp3 */; };
+		3B1AA83C1D898A9400461490 /* 9.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 3B1AA8321D898A9400461490 /* 9.mp3 */; };
+		3BFACA821D8AA87500E35C29 /* GlobalData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BFACA811D8AA87500E35C29 /* GlobalData.swift */; };
+		71C554C97C201D52AA4247B0 /* Pods_CognitiveGames.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5ABFCEE0A09F83F167D437AF /* Pods_CognitiveGames.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -88,9 +99,21 @@
 		18C495021CBCF0290037168A /* CognitiveGames-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CognitiveGames-Bridging-Header.h"; sourceTree = "<group>"; };
 		18FEC0AA1CA41DB800267C7E /* NumbersCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NumbersCollectionViewCell.swift; sourceTree = "<group>"; };
 		18FEC0AC1CA41DE300267C7E /* NumbersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NumbersViewController.swift; sourceTree = "<group>"; };
+		3B1AA8291D898A9400461490 /* 0.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 0.mp3; sourceTree = "<group>"; };
+		3B1AA82A1D898A9400461490 /* 1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 1.mp3; sourceTree = "<group>"; };
+		3B1AA82B1D898A9400461490 /* 2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 2.mp3; sourceTree = "<group>"; };
+		3B1AA82C1D898A9400461490 /* 3.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 3.mp3; sourceTree = "<group>"; };
+		3B1AA82D1D898A9400461490 /* 4.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 4.mp3; sourceTree = "<group>"; };
+		3B1AA82E1D898A9400461490 /* 5.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 5.mp3; sourceTree = "<group>"; };
+		3B1AA82F1D898A9400461490 /* 6.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 6.mp3; sourceTree = "<group>"; };
+		3B1AA8301D898A9400461490 /* 7.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 7.mp3; sourceTree = "<group>"; };
+		3B1AA8311D898A9400461490 /* 8.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 8.mp3; sourceTree = "<group>"; };
+		3B1AA8321D898A9400461490 /* 9.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 9.mp3; sourceTree = "<group>"; };
+		3BFACA811D8AA87500E35C29 /* GlobalData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalData.swift; sourceTree = "<group>"; };
+		5ABFCEE0A09F83F167D437AF /* Pods_CognitiveGames.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CognitiveGames.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		84B000AE683DDD4A3DA9DAB5 /* Pods-CognitiveGames.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CognitiveGames.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CognitiveGames/Pods-CognitiveGames.debug.xcconfig"; sourceTree = "<group>"; };
 		B924EDE9A4EFEA4D5B449FC7 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		BAC10A306F3028706849044A /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
-		C77F44E4BD6F779CEAB0CF92 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		F5B155C6517D2AE08DEAC227 /* Pods-CognitiveGames.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CognitiveGames.release.xcconfig"; path = "Pods/Target Support Files/Pods-CognitiveGames/Pods-CognitiveGames.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,7 +122,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				180DA3441C5A215F004B6D6D /* SpriteKit.framework in Frameworks */,
-				32D08175AA23158D4D2F68F9 /* Pods.framework in Frameworks */,
+				71C554C97C201D52AA4247B0 /* Pods_CognitiveGames.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -120,15 +143,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		08CCB91CE0418468BD5447BD /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				BAC10A306F3028706849044A /* Pods.debug.xcconfig */,
-				C77F44E4BD6F779CEAB0CF92 /* Pods.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
 		180316E51CA5247C003B9CE0 /* Grid */ = {
 			isa = PBXGroup;
 			children = (
@@ -213,8 +227,8 @@
 				1860EEBA1C295E0600A87541 /* CognitiveGamesTests */,
 				1860EEC51C295E0600A87541 /* CognitiveGamesUITests */,
 				1860EEA41C295E0600A87541 /* Products */,
-				08CCB91CE0418468BD5447BD /* Pods */,
 				7EAF8CA8F88E4BF50AC8D5C3 /* Frameworks */,
+				5470D10CCAE91794999650CD /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -236,6 +250,7 @@
 				1860EEAD1C295E0600A87541 /* Assets.xcassets */,
 				1860EEAF1C295E0600A87541 /* LaunchScreen.storyboard */,
 				1860EED41C295E6F00A87541 /* Classes */,
+				3B1AA8271D898A6700461490 /* Resources */,
 				1860EEB21C295E0600A87541 /* Info.plist */,
 				18C495021CBCF0290037168A /* CognitiveGames-Bridging-Header.h */,
 			);
@@ -264,10 +279,9 @@
 		1860EED41C295E6F00A87541 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				3BFACA801D8AA86900E35C29 /* Managers */,
 				1824A8611CB799AB003EE1C5 /* Models */,
 				1860EED51C295E6F00A87541 /* External */,
-				1860EED61C295E6F00A87541 /* Managers */,
-				1860EED71C295E6F00A87541 /* Utility */,
 				1860EED81C295E6F00A87541 /* Views */,
 			);
 			path = Classes;
@@ -280,20 +294,6 @@
 				181DECB11CBB8E2600180876 /* SWRevealViewController */,
 			);
 			path = External;
-			sourceTree = "<group>";
-		};
-		1860EED61C295E6F00A87541 /* Managers */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Managers;
-			sourceTree = "<group>";
-		};
-		1860EED71C295E6F00A87541 /* Utility */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Utility;
 			sourceTree = "<group>";
 		};
 		1860EED81C295E6F00A87541 /* Views */ = {
@@ -339,10 +339,53 @@
 			path = Numbers;
 			sourceTree = "<group>";
 		};
+		3B1AA8271D898A6700461490 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				3B1AA8281D898A8500461490 /* Sounds */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		3B1AA8281D898A8500461490 /* Sounds */ = {
+			isa = PBXGroup;
+			children = (
+				3B1AA8291D898A9400461490 /* 0.mp3 */,
+				3B1AA82A1D898A9400461490 /* 1.mp3 */,
+				3B1AA82B1D898A9400461490 /* 2.mp3 */,
+				3B1AA82C1D898A9400461490 /* 3.mp3 */,
+				3B1AA82D1D898A9400461490 /* 4.mp3 */,
+				3B1AA82E1D898A9400461490 /* 5.mp3 */,
+				3B1AA82F1D898A9400461490 /* 6.mp3 */,
+				3B1AA8301D898A9400461490 /* 7.mp3 */,
+				3B1AA8311D898A9400461490 /* 8.mp3 */,
+				3B1AA8321D898A9400461490 /* 9.mp3 */,
+			);
+			path = Sounds;
+			sourceTree = "<group>";
+		};
+		3BFACA801D8AA86900E35C29 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				3BFACA811D8AA87500E35C29 /* GlobalData.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		5470D10CCAE91794999650CD /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				84B000AE683DDD4A3DA9DAB5 /* Pods-CognitiveGames.debug.xcconfig */,
+				F5B155C6517D2AE08DEAC227 /* Pods-CognitiveGames.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		7EAF8CA8F88E4BF50AC8D5C3 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 				B924EDE9A4EFEA4D5B449FC7 /* Pods.framework */,
+				5ABFCEE0A09F83F167D437AF /* Pods_CognitiveGames.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -354,12 +397,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1860EECB1C295E0600A87541 /* Build configuration list for PBXNativeTarget "CognitiveGames" */;
 			buildPhases = (
-				4CB3275EF09CE71013B5F826 /* Check Pods Manifest.lock */,
+				F90E13A89B3DDEC508E97325 /* [CP] Check Pods Manifest.lock */,
 				1860EE9F1C295E0600A87541 /* Sources */,
 				1860EEA01C295E0600A87541 /* Frameworks */,
 				1860EEA11C295E0600A87541 /* Resources */,
-				CCA75C5E5BFE8EDDCF54BDA0 /* Embed Pods Frameworks */,
-				3BF7FBA4C3BA0A67734C5F95 /* Copy Pods Resources */,
+				918AB9F6CECB4883A5E0F06C /* [CP] Embed Pods Frameworks */,
+				5DA574D1518824E77D078D5F /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -413,18 +456,21 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0720;
-				LastUpgradeCheck = 0720;
+				LastUpgradeCheck = 0800;
 				ORGANIZATIONNAME = "Chaotic Neutral";
 				TargetAttributes = {
 					1860EEA21C295E0600A87541 = {
 						CreatedOnToolsVersion = 7.2;
+						LastSwiftMigration = 0800;
 					};
 					1860EEB61C295E0600A87541 = {
 						CreatedOnToolsVersion = 7.2;
+						LastSwiftMigration = 0800;
 						TestTargetID = 1860EEA21C295E0600A87541;
 					};
 					1860EEC11C295E0600A87541 = {
 						CreatedOnToolsVersion = 7.2;
+						LastSwiftMigration = 0800;
 						TestTargetID = 1860EEA21C295E0600A87541;
 					};
 				};
@@ -454,10 +500,20 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3B1AA8391D898A9400461490 /* 6.mp3 in Resources */,
+				3B1AA8371D898A9400461490 /* 4.mp3 in Resources */,
+				3B1AA8341D898A9400461490 /* 1.mp3 in Resources */,
 				1860EEB11C295E0600A87541 /* LaunchScreen.storyboard in Resources */,
+				3B1AA8331D898A9400461490 /* 0.mp3 in Resources */,
 				1860EEAE1C295E0600A87541 /* Assets.xcassets in Resources */,
+				3B1AA83A1D898A9400461490 /* 7.mp3 in Resources */,
 				180DA34C1C5A2938004B6D6D /* RotatingScene.sks in Resources */,
+				3B1AA8381D898A9400461490 /* 5.mp3 in Resources */,
+				3B1AA8351D898A9400461490 /* 2.mp3 in Resources */,
+				3B1AA8361D898A9400461490 /* 3.mp3 in Resources */,
 				1860EEAC1C295E0600A87541 /* Main.storyboard in Resources */,
+				3B1AA83C1D898A9400461490 /* 9.mp3 in Resources */,
+				3B1AA83B1D898A9400461490 /* 8.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -478,49 +534,49 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		3BF7FBA4C3BA0A67734C5F95 /* Copy Pods Resources */ = {
+		5DA574D1518824E77D078D5F /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Copy Pods Resources";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CognitiveGames/Pods-CognitiveGames-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		4CB3275EF09CE71013B5F826 /* Check Pods Manifest.lock */ = {
+		918AB9F6CECB4883A5E0F06C /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Check Pods Manifest.lock";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CognitiveGames/Pods-CognitiveGames-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		CCA75C5E5BFE8EDDCF54BDA0 /* Embed Pods Frameworks */ = {
+		F90E13A89B3DDEC508E97325 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Embed Pods Frameworks";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -545,6 +601,7 @@
 				181DECBD1CBB9F8A00180876 /* RegisterViewController.swift in Sources */,
 				1860EEDD1C2965BF00A87541 /* MainCollectionViewCell.swift in Sources */,
 				1860EEE01C2968C900A87541 /* SortViewController.swift in Sources */,
+				3BFACA821D8AA87500E35C29 /* GlobalData.swift in Sources */,
 				181DECBA1CBB9B0200180876 /* LandingViewController.swift in Sources */,
 				181DECC01CBBBDBF00180876 /* UsersTableViewController.swift in Sources */,
 				1860EEA71C295E0600A87541 /* AppDelegate.swift in Sources */,
@@ -616,10 +673,13 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
@@ -661,10 +721,13 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
@@ -681,6 +744,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -688,27 +752,33 @@
 		};
 		1860EECC1C295E0600A87541 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = BAC10A306F3028706849044A /* Pods.debug.xcconfig */;
+			baseConfigurationReference = 84B000AE683DDD4A3DA9DAB5 /* Pods-CognitiveGames.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = CognitiveGames/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ChaoticNeutral.CognitiveGames;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "CognitiveGames/CognitiveGames-Bridging-Header.h";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
 		1860EECD1C295E0600A87541 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C77F44E4BD6F779CEAB0CF92 /* Pods.release.xcconfig */;
+			baseConfigurationReference = F5B155C6517D2AE08DEAC227 /* Pods-CognitiveGames.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = CognitiveGames/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ChaoticNeutral.CognitiveGames;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "CognitiveGames/CognitiveGames-Bridging-Header.h";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -720,6 +790,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ChaoticNeutral.CognitiveGamesTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CognitiveGames.app/CognitiveGames";
 			};
 			name = Debug;
@@ -732,6 +803,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ChaoticNeutral.CognitiveGamesTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CognitiveGames.app/CognitiveGames";
 			};
 			name = Release;
@@ -743,6 +815,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ChaoticNeutral.CognitiveGamesUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_TARGET_NAME = CognitiveGames;
 				USES_XCTRUNNER = YES;
 			};
@@ -755,6 +828,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ChaoticNeutral.CognitiveGamesUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_TARGET_NAME = CognitiveGames;
 				USES_XCTRUNNER = YES;
 			};

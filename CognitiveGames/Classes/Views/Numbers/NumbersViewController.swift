@@ -41,34 +41,41 @@ class NumbersViewController: UIViewController, UICollectionViewDelegate, UIColle
     
     //    MARK: Collection View data source
     
-    func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int
+    func numberOfSections(in collectionView: UICollectionView) -> Int
     {
         return 1
     }
     
-    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int
     {
         return 16
     }
     
-    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell
     {
-        let cell: NumbersCollectionViewCell = collectionView.dequeueReusableCellWithReuseIdentifier("NumbersCell", forIndexPath: indexPath) as! NumbersCollectionViewCell
+        let cell: NumbersCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "NumbersCell", for: indexPath) as! NumbersCollectionViewCell
         
         cell.configureCell()
-        cell.labelNumber.text = "\(indexPath.row + 1)"
+        cell.labelNumber.text = "\((indexPath as NSIndexPath).row + 1)"
         
         return cell
     }
     
     //    MARK: Collection View delegate
     
-    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath)
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath)
     {
-        arrayCheck.append(indexPath.item)
+        let cell = collectionView.cellForItem(at: indexPath)
+        UIView.animate(withDuration: 0.2, animations: {
+            cell!.transform = CGAffineTransform(scaleX: 0.95, y: 0.95)
+        }, completion: { (finished) in
+            cell!.transform = CGAffineTransform.identity
+        }) 
+        
+        arrayCheck.append((indexPath as NSIndexPath).item)
         if arrayCheck.count == array.count
         {
-            if array.elementsEqual(arrayCheck.reverse()) == true
+            if array.elementsEqual(arrayCheck.reversed()) == true
             {
                 print("bravo")
                 progressViewLevel.progress += 0.1
@@ -92,51 +99,51 @@ class NumbersViewController: UIViewController, UICollectionViewDelegate, UIColle
         }
     }
     
-    func collectionView(collectionView: UICollectionView, didHighlightItemAtIndexPath indexPath: NSIndexPath)
+    func collectionView(_ collectionView: UICollectionView, didHighlightItemAt indexPath: IndexPath)
     {
-        let cell: NumbersCollectionViewCell = collectionView.cellForItemAtIndexPath(indexPath) as! NumbersCollectionViewCell
-        cell.view.backgroundColor = UIColor.lightGrayColor()
+        let cell: NumbersCollectionViewCell = collectionView.cellForItem(at: indexPath) as! NumbersCollectionViewCell
+        cell.view.backgroundColor = UIColor.lightGray
     }
     
-    func collectionView(collectionView: UICollectionView, didUnhighlightItemAtIndexPath indexPath: NSIndexPath)
+    func collectionView(_ collectionView: UICollectionView, didUnhighlightItemAt indexPath: IndexPath)
     {
-        let cell: NumbersCollectionViewCell = collectionView.cellForItemAtIndexPath(indexPath) as! NumbersCollectionViewCell
-        cell.view.backgroundColor = UIColor.grayColor()
+        let cell: NumbersCollectionViewCell = collectionView.cellForItem(at: indexPath) as! NumbersCollectionViewCell
+        cell.view.backgroundColor = UIColor.gray
     }
     
-    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: IndexPath) -> CGSize
     {
-        return CGSize(width: UIScreen.mainScreen().bounds.size.width / 4 - 10, height: UIScreen.mainScreen().bounds.size.width / 4 - 10)
+        return CGSize(width: UIScreen.main.bounds.size.width / 4 - 10, height: UIScreen.main.bounds.size.width / 4 - 10)
     }
     
     //    MARK: button
     
-    @IBAction func buttonGoTapped(sender: AnyObject)
+    @IBAction func buttonGoTapped(_ sender: AnyObject)
     {
-        view.userInteractionEnabled = false
+        view.isUserInteractionEnabled = false
         array = []
         arrayCheck = []
         for i in 0 ..< level
         {
-            NSTimer.scheduledTimerWithTimeInterval(Double(i * 2) * 0.8, target: self, selector: #selector(NumbersViewController.show(_:)), userInfo: i, repeats: false)
-            NSTimer.scheduledTimerWithTimeInterval(Double(i * 2 + 1) * 0.8, target: self, selector: #selector(NumbersViewController.hide(_:)), userInfo: i, repeats: false)
+            Timer.scheduledTimer(timeInterval: Double(i * 2) * 0.8, target: self, selector: #selector(NumbersViewController.show(_:)), userInfo: i, repeats: false)
+            Timer.scheduledTimer(timeInterval: Double(i * 2 + 1) * 0.8, target: self, selector: #selector(NumbersViewController.hide(_:)), userInfo: i, repeats: false)
         }
     }
     
-    func show(timer: NSTimer)
+    func show(_ timer: Timer)
     {
-        let cell: NumbersCollectionViewCell = collectionView.cellForItemAtIndexPath(NSIndexPath(forItem: randomItem(), inSection: 0)) as! NumbersCollectionViewCell
-        cell.view.backgroundColor = UIColor.orangeColor()
+        let cell: NumbersCollectionViewCell = collectionView.cellForItem(at: IndexPath(item: randomItem(), section: 0)) as! NumbersCollectionViewCell
+        cell.view.backgroundColor = UIColor.orange
     }
     
-    func hide(timer: NSTimer)
+    func hide(_ timer: Timer)
     {
-        let cell: NumbersCollectionViewCell = collectionView.cellForItemAtIndexPath(NSIndexPath(forItem: array[timer.userInfo as! Int], inSection: 0)) as! NumbersCollectionViewCell
-        cell.view.backgroundColor = UIColor.grayColor()
+        let cell: NumbersCollectionViewCell = collectionView.cellForItem(at: IndexPath(item: array[timer.userInfo as! Int], section: 0)) as! NumbersCollectionViewCell
+        cell.view.backgroundColor = UIColor.gray
         
         if timer.userInfo as! Int == level - 1
         {
-            view.userInteractionEnabled = true
+            view.isUserInteractionEnabled = true
         }
     }
     
@@ -152,5 +159,13 @@ class NumbersViewController: UIViewController, UICollectionViewDelegate, UIColle
         array.append(random)
         
         return random;
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?)
+    {
+        if segue.identifier == "numbersTutorialSegue"
+        {
+            (segue.destination as! TutorialViewController).game = "numbers"
+        }
     }
 }

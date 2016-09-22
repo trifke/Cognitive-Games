@@ -11,13 +11,12 @@ import RealmSwift
 
 class RegisterViewController: UIViewController, UITextFieldDelegate
 {
-
     @IBOutlet weak var buttonBack: UIButton! {
         didSet {
             let origImage = UIImage(named: "back");
-            let tintedImage = origImage?.imageWithRenderingMode(UIImageRenderingMode.AlwaysTemplate)
-            buttonBack.setImage(tintedImage, forState: .Normal)
-            buttonBack.tintColor = UIColor.lightGrayColor()
+            let tintedImage = origImage?.withRenderingMode(UIImageRenderingMode.alwaysTemplate)
+            buttonBack.setImage(tintedImage, for: UIControlState())
+            buttonBack.tintColor = UIColor.lightGray
         }
     }
     
@@ -25,7 +24,7 @@ class RegisterViewController: UIViewController, UITextFieldDelegate
         didSet {
             textFieldName.layer.cornerRadius = 8.0
             textFieldName.layer.borderWidth = 1.0
-            textFieldName.layer.borderColor = UIColor.lightGrayColor().CGColor
+            textFieldName.layer.borderColor = UIColor.lightGray.cgColor
             textFieldName.layer.sublayerTransform = CATransform3DMakeTranslation(8, 0, 0)
         }
     }
@@ -49,7 +48,7 @@ class RegisterViewController: UIViewController, UITextFieldDelegate
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func buttonRegisterTapped(sender: AnyObject)
+    @IBAction func buttonRegisterTapped(_ sender: AnyObject)
     {
         let user = User()
         user.name = textFieldName.text!
@@ -58,19 +57,19 @@ class RegisterViewController: UIViewController, UITextFieldDelegate
         
         try! realm.write {
             realm.add(user)
-            self.dismissViewControllerAnimated(true, completion: nil)
+            self.dismiss(animated: true, completion: nil)
         }
 
     }
     
-    @IBAction func buttonBackTapped(sender: AnyObject)
+    @IBAction func buttonBackTapped(_ sender: AnyObject)
     {
-        self.dismissViewControllerAnimated(true, completion: nil)
+        self.dismiss(animated: true, completion: nil)
     }
     
     // MARK: - Text Field Delegate
     
-    func textFieldShouldReturn(textField: UITextField) -> Bool
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool
     {
         textField.resignFirstResponder()
         return true

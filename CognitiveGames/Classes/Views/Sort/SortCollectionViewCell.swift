@@ -17,14 +17,14 @@ class SortCollectionViewCell: UICollectionViewCell
     internal func configureCell()
     {
         view.layer.masksToBounds = false
-        view.layer.shadowColor = UIColor.blackColor().CGColor
+        view.layer.shadowColor = UIColor.black.cgColor
         view.layer.shadowOffset = CGSize(width: 4, height: 4)
         view.layer.shadowOpacity = 0.36
         view.layer.shadowRadius = 1.2
         view.layer.cornerRadius = 8.0
-        view.backgroundColor = UIColor.grayColor()
+        view.backgroundColor = UIColor.gray
         
-        labelNumber.hidden = true
+        labelNumber.isHidden = true
     }
 
 }

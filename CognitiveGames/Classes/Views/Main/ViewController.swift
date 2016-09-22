@@ -37,50 +37,50 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
 
 //    MARK: Collection View data source
     
-    func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int
+    func numberOfSections(in collectionView: UICollectionView) -> Int
     {
         return 1
     }
     
-    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int
     {
         return 4
     }
     
-    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell
     {
-        let cell: MainCollectionViewCell = collectionView.dequeueReusableCellWithReuseIdentifier("MainMenuCell", forIndexPath: indexPath) as! MainCollectionViewCell
+        let cell: MainCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "MainMenuCell", for: indexPath) as! MainCollectionViewCell
         
-        cell.configureCell(indexPath.row)
+        cell.configureCell((indexPath as NSIndexPath).row)
         
         return cell
     }
     
 //    MARK: Collection View delegate
     
-    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: IndexPath) -> CGSize
     {
-        return CGSize(width: UIScreen.mainScreen().bounds.size.width / 2 - 12, height: UIScreen.mainScreen().bounds.size.width / 2 - 12)
+        return CGSize(width: UIScreen.main.bounds.size.width / 2 - 12, height: UIScreen.main.bounds.size.width / 2 - 12)
     }
     
-    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath)
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath)
     {
-        switch indexPath.row
+        switch (indexPath as NSIndexPath).row
         {
             case 0:
-                performSegueWithIdentifier("SortSegue", sender: nil)
+                performSegue(withIdentifier: "SortSegue", sender: nil)
                 break
             
             case 1:
-                performSegueWithIdentifier("RotatingSegue", sender: nil)
+                performSegue(withIdentifier: "RotatingSegue", sender: nil)
                 break
             
             case 2:
-                performSegueWithIdentifier("NumbersSegue", sender: nil)
+                performSegue(withIdentifier: "NumbersSegue", sender: nil)
                 break
             
             case 3:
-                performSegueWithIdentifier("GridSegue", sender: nil)
+                performSegue(withIdentifier: "GridSegue", sender: nil)
                 break
             
             default:

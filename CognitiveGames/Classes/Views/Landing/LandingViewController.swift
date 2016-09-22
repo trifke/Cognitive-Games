@@ -11,6 +11,8 @@ import RealmSwift
 
 class LandingViewController: UIViewController
 {
+    @IBOutlet weak var labelWelcome: UILabel!
+    
     @IBOutlet weak var buttonPlay: UIButton! {
         didSet {
             buttonPlay.layer.cornerRadius = 8.0
@@ -22,11 +24,33 @@ class LandingViewController: UIViewController
             buttonNew.layer.cornerRadius = 8.0
         }
     }
+    
     override func viewDidLoad()
     {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
+    }
+    
+    override func viewWillAppear(_ animated: Bool)
+    {
+        super.viewWillAppear(animated)
+        
+        if let id = UserDefaults.standard.object(forKey: "id")
+        {
+            // Get the default Realm
+            let realm = try! Realm()
+            // Query Realm for all dogs less than 2 years old
+            let currentUser = realm.object(ofType: User.self, forPrimaryKey: id as AnyObject)
+            
+            labelWelcome.text = "Welcome " + (currentUser?.name)!
+            buttonNew.setTitle("Not " + (currentUser?.name)!, for: UIControlState())
+        }
+        else
+        {
+            labelWelcome.text = "Welcome"
+            buttonNew.setTitle("NEW PLAYER", for: UIControlState())
+        }
     }
 
     override func didReceiveMemoryWarning()

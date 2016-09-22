@@ -16,7 +16,7 @@ class MainCollectionViewCell: UICollectionViewCell
     
     @IBOutlet weak var imageView: UIImageView!
     
-    internal func configureCell(row: Int)
+    internal func configureCell(_ row: Int)
     {
         switch (row)
         {

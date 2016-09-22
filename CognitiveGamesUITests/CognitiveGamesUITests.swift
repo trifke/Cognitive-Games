@@ -43,16 +43,16 @@ class CognitiveGamesUITests: XCTestCase {
         
         let startButton = app.buttons["START"]
         startButton.tap()
-        collectionViewsQuery2.childrenMatchingType(.Cell).elementBoundByIndex(11).childrenMatchingType(.Other).element.childrenMatchingType(.Other).element.tap()
-        collectionViewsQuery2.childrenMatchingType(.Cell).elementBoundByIndex(6).childrenMatchingType(.Other).element.childrenMatchingType(.Other).element.tap()
-        app.navigationBars["Sort"].childrenMatchingType(.Button).matchingIdentifier("Back").elementBoundByIndex(0).tap()
+        collectionViewsQuery2.children(matching: .cell).element(boundBy: 11).children(matching: .other).element.children(matching: .other).element.tap()
+        collectionViewsQuery2.children(matching: .cell).element(boundBy: 6).children(matching: .other).element.children(matching: .other).element.tap()
+        app.navigationBars["Sort"].children(matching: .button).matching(identifier: "Back").element(boundBy: 0).tap()
         collectionViewsQuery.images["rotating"].tap()
         startButton.tap()
         
-        let element = app.otherElements.containingType(.NavigationBar, identifier:"SWRevealView").childrenMatchingType(.Other).element.childrenMatchingType(.Other).element.childrenMatchingType(.Other).element.childrenMatchingType(.Other).element.childrenMatchingType(.Other).element.childrenMatchingType(.Other).element.childrenMatchingType(.Other).element.childrenMatchingType(.Other).element.childrenMatchingType(.Other).elementBoundByIndex(1)
+        let element = app.otherElements.containing(.navigationBar, identifier:"SWRevealView").children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element(boundBy: 1)
         element.tap()
         element.tap()
-        app.navigationBars["Rotating"].childrenMatchingType(.Button).matchingIdentifier("Back").elementBoundByIndex(0).tap()
+        app.navigationBars["Rotating"].children(matching: .button).matching(identifier: "Back").element(boundBy: 0).tap()
         collectionViewsQuery.images["numbers"].tap()
         startButton.tap()
         collectionViewsQuery.staticTexts["2"].tap()
@@ -60,11 +60,11 @@ class CognitiveGamesUITests: XCTestCase {
         startButton.tap()
         collectionViewsQuery.staticTexts["8"].tap()
         collectionViewsQuery.staticTexts["5"].tap()
-        app.navigationBars["Numbers"].childrenMatchingType(.Button).matchingIdentifier("Back").elementBoundByIndex(0).tap()
+        app.navigationBars["Numbers"].children(matching: .button).matching(identifier: "Back").element(boundBy: 0).tap()
         collectionViewsQuery.images["grid"].tap()
         startButton.tap()
-        collectionViewsQuery2.childrenMatchingType(.Cell).elementBoundByIndex(10).childrenMatchingType(.Other).element.childrenMatchingType(.Other).element.tap()
-        collectionViewsQuery2.childrenMatchingType(.Cell).elementBoundByIndex(14).childrenMatchingType(.Other).element.childrenMatchingType(.Other).element.tap()
+        collectionViewsQuery2.children(matching: .cell).element(boundBy: 10).children(matching: .other).element.children(matching: .other).element.tap()
+        collectionViewsQuery2.children(matching: .cell).element(boundBy: 14).children(matching: .other).element.children(matching: .other).element.tap()
         
         
     }

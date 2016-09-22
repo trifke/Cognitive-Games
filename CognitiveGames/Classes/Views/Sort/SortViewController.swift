@@ -41,19 +41,19 @@ class SortViewController: UIViewController, UICollectionViewDelegate, UICollecti
     
     //    MARK: Collection View data source
     
-    func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int
+    func numberOfSections(in collectionView: UICollectionView) -> Int
     {
         return 1
     }
     
-    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int
     {
         return 16
     }
     
-    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell
     {
-        let cell: SortCollectionViewCell = collectionView.dequeueReusableCellWithReuseIdentifier("SortCell", forIndexPath: indexPath) as! SortCollectionViewCell
+        let cell: SortCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "SortCell", for: indexPath) as! SortCollectionViewCell
         
         cell.configureCell()
         
@@ -62,12 +62,19 @@ class SortViewController: UIViewController, UICollectionViewDelegate, UICollecti
     
     //    MARK: Collection View delegate
     
-    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath)
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath)
     {
-        arrayCheck.addObject(indexPath.item)
+        let cell = collectionView.cellForItem(at: indexPath)
+        UIView.animate(withDuration: 0.2, animations: {
+            cell!.transform = CGAffineTransform(scaleX: 0.95, y: 0.95)
+            }, completion: { (finished) in
+                cell!.transform = CGAffineTransform.identity
+        }) 
+        
+        arrayCheck.add((indexPath as NSIndexPath).item)
         if arrayCheck.count == array.count
         {
-            if array.isEqualToArray(arrayCheck.reverse())
+            if array.isEqual(to: arrayCheck.reversed())
             {
                 print("bravo")
                 progressViewLevel.progress += 0.1
@@ -91,54 +98,54 @@ class SortViewController: UIViewController, UICollectionViewDelegate, UICollecti
         }
     }
     
-    func collectionView(collectionView: UICollectionView, didHighlightItemAtIndexPath indexPath: NSIndexPath)
+    func collectionView(_ collectionView: UICollectionView, didHighlightItemAt indexPath: IndexPath)
     {
-        let cell: SortCollectionViewCell = collectionView.cellForItemAtIndexPath(indexPath) as! SortCollectionViewCell
-        cell.view.backgroundColor = UIColor.lightGrayColor()
+        let cell: SortCollectionViewCell = collectionView.cellForItem(at: indexPath) as! SortCollectionViewCell
+        cell.view.backgroundColor = UIColor.lightGray
     }
     
-    func collectionView(collectionView: UICollectionView, didUnhighlightItemAtIndexPath indexPath: NSIndexPath)
+    func collectionView(_ collectionView: UICollectionView, didUnhighlightItemAt indexPath: IndexPath)
     {
-        let cell: SortCollectionViewCell = collectionView.cellForItemAtIndexPath(indexPath) as! SortCollectionViewCell
-        cell.view.backgroundColor = UIColor.grayColor()
+        let cell: SortCollectionViewCell = collectionView.cellForItem(at: indexPath) as! SortCollectionViewCell
+        cell.view.backgroundColor = UIColor.gray
     }
     
-    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: IndexPath) -> CGSize
     {
-        return CGSize(width: UIScreen.mainScreen().bounds.size.width / 4 - 10, height: UIScreen.mainScreen().bounds.size.width / 4 - 10)
+        return CGSize(width: UIScreen.main.bounds.size.width / 4 - 10, height: UIScreen.main.bounds.size.width / 4 - 10)
     }
     
     //    MARK: button
     
-    @IBAction func buttonGoTapped(sender: AnyObject)
+    @IBAction func buttonGoTapped(_ sender: AnyObject)
     {
-        view.userInteractionEnabled = false
+        view.isUserInteractionEnabled = false
         array = []
         arrayCheck = []
         for i in 0 ..< level
         {
-            NSTimer.scheduledTimerWithTimeInterval(Double(i * 2) * 0.8, target: self, selector: #selector(SortViewController.show(_:)), userInfo: i, repeats: false)
-            NSTimer.scheduledTimerWithTimeInterval(Double(i * 2 + 1) * 0.8, target: self, selector: #selector(SortViewController.hide(_:)), userInfo: i, repeats: false)
+            Timer.scheduledTimer(timeInterval: Double(i * 2) * 0.8, target: self, selector: #selector(SortViewController.show(_:)), userInfo: i, repeats: false)
+            Timer.scheduledTimer(timeInterval: Double(i * 2 + 1) * 0.8, target: self, selector: #selector(SortViewController.hide(_:)), userInfo: i, repeats: false)
         }
     }
     
-    func show(timer: NSTimer)
+    func show(_ timer: Timer)
     {
-        let cell: SortCollectionViewCell = collectionView.cellForItemAtIndexPath(NSIndexPath(forItem: randomItem(), inSection: 0)) as! SortCollectionViewCell
+        let cell: SortCollectionViewCell = collectionView.cellForItem(at: IndexPath(item: randomItem(), section: 0)) as! SortCollectionViewCell
         cell.labelNumber.text = "\(level - (timer.userInfo as! Int))"
-        cell.labelNumber.hidden = false
-        cell.view.backgroundColor = UIColor.orangeColor()
+        cell.labelNumber.isHidden = false
+        cell.view.backgroundColor = UIColor.orange
     }
     
-    func hide(timer: NSTimer)
+    func hide(_ timer: Timer)
     {
-        let cell: SortCollectionViewCell = collectionView.cellForItemAtIndexPath(NSIndexPath(forItem: array[timer.userInfo as! Int] as! Int, inSection: 0)) as! SortCollectionViewCell
-        cell.labelNumber.hidden = true
-        cell.view.backgroundColor = UIColor.grayColor()
+        let cell: SortCollectionViewCell = collectionView.cellForItem(at: IndexPath(item: array[timer.userInfo as! Int] as! Int, section: 0)) as! SortCollectionViewCell
+        cell.labelNumber.isHidden = true
+        cell.view.backgroundColor = UIColor.gray
         
         if timer.userInfo as! Int == level - 1
         {
-            view.userInteractionEnabled = true
+            view.isUserInteractionEnabled = true
         }
     }
     
@@ -146,13 +153,21 @@ class SortViewController: UIViewController, UICollectionViewDelegate, UICollecti
     {
         var random = Int(arc4random_uniform(16))
         
-        while array.containsObject(random)
+        while array.contains(random)
         {
             random = Int(arc4random_uniform(16))
         }
         
-        array.addObject(random)
+        array.add(random)
         
         return random;
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?)
+    {
+        if segue.identifier == "sortTutorialSegue"
+        {
+            (segue.destination as! TutorialViewController).game = "sort"
+        }
     }
 }

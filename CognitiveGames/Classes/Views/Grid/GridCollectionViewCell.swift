@@ -15,11 +15,11 @@ class GridCollectionViewCell: UICollectionViewCell
     internal func configureCell()
     {
         view.layer.masksToBounds = false
-        view.layer.shadowColor = UIColor.blackColor().CGColor
+        view.layer.shadowColor = UIColor.black.cgColor
         view.layer.shadowOffset = CGSize(width: 4, height: 4)
         view.layer.shadowOpacity = 0.36
         view.layer.shadowRadius = 1.2
-        view.layer.cornerRadius = (UIScreen.mainScreen().bounds.size.width / 4 - 10 - 16) / 2
-        view.backgroundColor = UIColor.grayColor()
+        view.layer.cornerRadius = (UIScreen.main.bounds.size.width / 4 - 10 - 16) / 2
+        view.backgroundColor = UIColor.gray
     }
 }

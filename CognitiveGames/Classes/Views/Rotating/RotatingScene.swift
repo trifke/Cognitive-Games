@@ -11,7 +11,7 @@ import SpriteKit
 
 protocol ProgressUpdate
 {
-    func update(success: Bool)
+    func update(_ success: Bool)
 }
 
 class RotatingScene: SKScene
@@ -24,65 +24,70 @@ class RotatingScene: SKScene
     
     var node: SKShapeNode = SKShapeNode()
     
-    override func didMoveToView(view: SKView)
+    override func didMove(to view: SKView)
     {
-        let radius: Double = Double(240)
+        let radius: Double = Double(300)
         
         for i in 0 ..< 10
         {
             let angle: Double = 2 * M_PI * Double(i) / 10
-            let x: Double = 300 + radius * cos(angle)
-            let y: Double = 300 + radius * sin(angle)
+            let x: Double = Double(frame.width) / 2 + radius * sin(angle)
+            let y: Double = Double(frame.height) / 2 + radius * cos(angle)
         
-            let node: SKShapeNode = SKShapeNode(circleOfRadius: 56.0)
+            let node: SKShapeNode = SKShapeNode(circleOfRadius: 64.0)
             node.position = CGPoint(x: x, y: y)
             node.zPosition = 0.0
-            node.fillColor = SKColor.grayColor()
+            node.fillColor = SKColor.gray
             node.name = "\(i)"
             self.addChild(node)
             arrayNodes.append(node)
             
-            let dx = node.position.x - self.frame.width / 2
-            let dy = node.position.y - self.frame.height / 2
+            let dx = node.position.x - frame.width / 2
+            let dy = node.position.y - frame.height / 2
             
             let rad = atan2(dy, dx)
 
-            let Path = UIBezierPath(arcCenter: CGPoint(x: self.frame.width / 2, y: self.frame.height / 2), radius: CGFloat(radius), startAngle: rad, endAngle: rad + CGFloat(M_PI * 4), clockwise: true)
-            let follow = SKAction.followPath(Path.CGPath, asOffset: false, orientToPath: true, speed: 200)
-            node.runAction(SKAction.repeatActionForever(follow).reversedAction())
+            let Path = UIBezierPath(arcCenter: CGPoint(x: frame.width / 2, y: frame.height / 2), radius: CGFloat(radius), startAngle: rad, endAngle: rad + CGFloat(M_PI * 2), clockwise: true)
+            let follow = SKAction.follow(Path.cgPath, asOffset: false, orientToPath: true, speed: 128)
+            node.run(SKAction.repeatForever(follow).reversed())
         }
-        
     }
     
-    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?)
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?)
     {
         let touch = touches.first!
-        let viewTouchLocation = touch.locationInView(self.view)
-        let sceneTouchPoint = scene!.convertPointFromView(viewTouchLocation)
-        let touchedNode = scene!.nodeAtPoint(sceneTouchPoint)
-        node = touchedNode as! SKShapeNode
-        node.fillColor = SKColor.lightGrayColor()
+        let viewTouchLocation = touch.location(in: view)
+        let sceneTouchPoint = scene!.convertPoint(fromView: viewTouchLocation)
+        let touchedNode = scene!.atPoint(sceneTouchPoint)
         
-        arrayCheck.append(Int(node.name!)!)
-        if arrayCheck.count == array.count
+        if touchedNode.name != "Scene"
         {
-            if array.elementsEqual(arrayCheck)
+            node = touchedNode as! SKShapeNode
+            node.fillColor = SKColor.lightGray
+            node.setScale(0.95)
+            
+            arrayCheck.append(Int(node.name!)!)
+            if arrayCheck.count == array.count
             {
-                delegateProgress!.update(true)
-            }
-            else
-            {
-                delegateProgress!.update(false)
+                if array.elementsEqual(arrayCheck)
+                {
+                    delegateProgress!.update(true)
+                }
+                else
+                {
+                    delegateProgress!.update(false)
+                }
             }
         }
     }
     
-    override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?)
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?)
     {
-        node.fillColor = SKColor.grayColor()
+        node.fillColor = SKColor.gray
+        node.setScale(1)
     }
     
-    override func update(currentTime: CFTimeInterval)
+    override func update(_ currentTime: TimeInterval)
     {
         
     }

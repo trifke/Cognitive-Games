@@ -37,9 +37,10 @@ class RotatingViewController: UIViewController, ProgressUpdate
             skView.showsNodeCount = false
             skView.ignoresSiblingOrder = true
             
-            gameScene!.backgroundColor = UIColor.whiteColor()
+            gameScene!.backgroundColor = UIColor.white
             gameScene!.size = self.viewHolder.bounds.size
             gameScene!.delegateProgress = self
+            gameScene!.name = "Scene"
             
             skView.presentScene(gameScene)
         }
@@ -58,32 +59,32 @@ class RotatingViewController: UIViewController, ProgressUpdate
     
     //    MARK: button
     
-    @IBAction func goButtonTapped(sender: AnyObject)
+    @IBAction func goButtonTapped(_ sender: AnyObject)
     {
-        view.userInteractionEnabled = false
+        view.isUserInteractionEnabled = false
         gameScene!.array = []
         gameScene!.arrayCheck = []
         for i in 0 ..< level
         {
-            NSTimer.scheduledTimerWithTimeInterval(Double(i * 2) * 0.8, target: self, selector: #selector(RotatingViewController.show(_:)), userInfo: i, repeats: false)
-            NSTimer.scheduledTimerWithTimeInterval(Double(i * 2 + 1) * 0.8, target: self, selector: #selector(RotatingViewController.hide(_:)), userInfo: i, repeats: false)
+            Timer.scheduledTimer(timeInterval: Double(i * 2) * 0.8, target: self, selector: #selector(RotatingViewController.show(_:)), userInfo: i, repeats: false)
+            Timer.scheduledTimer(timeInterval: Double(i * 2 + 1) * 0.8, target: self, selector: #selector(RotatingViewController.hide(_:)), userInfo: i, repeats: false)
         }
     }
     
-    func show(timer: NSTimer)
+    func show(_ timer: Timer)
     {
         let node = gameScene?.arrayNodes[randomItem()]
-        node!.fillColor = SKColor.orangeColor()
+        node!.fillColor = SKColor.orange
     }
     
-    func hide(timer: NSTimer)
+    func hide(_ timer: Timer)
     {
         let node = gameScene?.arrayNodes[gameScene!.array[timer.userInfo as! Int]]
-        node!.fillColor = SKColor.grayColor()
+        node!.fillColor = SKColor.gray
         
         if timer.userInfo as! Int == level - 1
         {
-            view.userInteractionEnabled = true
+            view.isUserInteractionEnabled = true
         }
     }
     
@@ -103,7 +104,7 @@ class RotatingViewController: UIViewController, ProgressUpdate
     
     // MARK: progress update delegate
     
-    func update(success: Bool)
+    func update(_ success: Bool)
     {
         if success
         {
@@ -118,7 +119,7 @@ class RotatingViewController: UIViewController, ProgressUpdate
         }
         else
         {
-            print("nube")
+            print("probaj opet")
             progressViewLevel.progress -= 0.1
             if (Int(progressViewLevel.progress * 10) % 2 == 0)
             {
@@ -127,4 +128,13 @@ class RotatingViewController: UIViewController, ProgressUpdate
         }
         labelLevel.text = "\(level) / 5"
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?)
+    {
+        if segue.identifier == "rotatingTutorialSegue"
+        {
+            (segue.destination as! TutorialViewController).game = "rotating"
+        }
+    }
+    
 }
